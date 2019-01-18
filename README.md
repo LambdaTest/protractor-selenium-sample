@@ -1,3 +1,5 @@
+
+## Prerequisite
 * Install node-js and npm
 * Install dependencies `npm install`
 * Update `*.conf.js` files inside the `conf/` directory with your [LambdaTest Username and Access Key]
