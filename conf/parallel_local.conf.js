@@ -1,7 +1,9 @@
+username= process.env.LT_USERNAME || <your username>,
+accessKey=  process.env.LT_ACCESS_KEY || <your accessKey>,
+
 exports.config = {
   'specs': [ '../specs/local.js' ],
-  'username': process.env.LT_USERNAME || 'LT_USERNAME',
-  'accessKey': process.env.LT_ACCESS_KEY || 'LT_ACCESS_KEY',
+
   seleniumAddress: 'https://'+username+':'+accessKey+'@hub.lambdatest.com/wd/hub',
 
 
@@ -12,14 +14,28 @@ exports.config = {
   },
 
   'multiCapabilities': [{
-    'browserName': 'Chrome'
+    'browserName': 'Chrome',
+    'version':'67.0',
+    'platform': 'WIN10'
   },{
-    'browserName': 'Firefox'
+    'browserName': 'Safari',
+    'version':'11.1',
+    'platform': 'macOS 10.12'
   },{
-    'browserName': 'Safari'
+    'browserName': 'Edge',
+    'version':'15.0',
+    'platform': 'WIN10'
+  },{
+    'browserName': 'Firefox',
+    'version':'62.0',
+    'platform': 'WIN10'
+  },{
+    'browserName': 'Internet explorer',
+    'version':'10.0',
+    'platform': 'WIN10'
   }],
 
-
+};
 
 // Code to support common capabilities
 exports.config.multiCapabilities.forEach(function(caps){

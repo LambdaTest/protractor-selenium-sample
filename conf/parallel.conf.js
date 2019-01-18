@@ -1,7 +1,9 @@
+username= process.env.LT_USERNAME || <your username>,
+accessKey=  process.env.LT_ACCESS_KEY || <your accessKey>,
+
 exports.config = {
   'specs': [ '../specs/single.js' ],
-  'username': process.env.LT_USERNAME || 'LT_USERNAME',
-  'accessKey': process.env.LT_ACCESS_KEY || 'LT_ACCESS_KEY',
+
   seleniumAddress: 'https://'+username+':'+accessKey+'@hub.lambdatest.com/wd/hub',
 
   'commonCapabilities': {
