@@ -1,6 +1,7 @@
+username= process.env.LT_USERNAME || "<username>",
+accessKey=  process.env.LT_ACCESS_KEY || "<accessKey>",
 
-username= process.env.LT_USERNAME || "<your username>",
-accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
+// seleniumAddress: 'https://'+ username +':'+ accessKey  +'@hub.lambdatest.com/wd/hub',
 
 exports.config = {
   'specs': ['../specs/single.js'],
@@ -10,12 +11,12 @@ exports.config = {
   'capabilities': {
     'build': 'protractor-LambdaTest-Single',
     'browserName': 'chrome',
-    'version':'67.0',
+    'version':'73.0',
     'platform': 'WIN10',
     'video': true,
     'network': true,
     'console': true,
-    'visual': true
+    'visual': true,
   },
   onPrepare: () => {
 
@@ -26,7 +27,7 @@ exports.config = {
           browser.getProcessedConfig().then(function (config) {
             var fullName = config.specs[spec_id];
             //var fileName = fullName.substring(fullName.lastIndexOf('/')+1);
-            browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
+            // browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
           });
         }
       };
