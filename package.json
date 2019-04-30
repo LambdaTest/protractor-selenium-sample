@@ -1,0 +1,23 @@
+{
+  "name": "protractor-lambdatest",
+  "version": "0.1.0",
+  "readme": "Protractor Integration with [lambdatest](https://www.lambdatest.com)",
+  "description": "Selenium examples for Protractor and lambdatest Automate",
+  "scripts": {
+    "test": "npm run single && npm run local && npm run parallel",
+    "single": "./node_modules/.bin/protractor conf/single.conf.js",
+    "local": "./node_modules/.bin/protractor conf/local.conf.js",
+    "parallel": "./node_modules/.bin/protractor conf/parallel.conf.js",
+    "parallel_local": "./node_modules/.bin/protractor conf/parallel_local.conf.js",
+    "uploadfile": "./node_modules/.bin/protractor conf/fileupload.conf.js",
+    "nonanguploadfile": "./node_modules/.bin/protractor conf/nonAngularfileupload.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lambdatest/protractor-selenium-sample"
+  },
+  "dependencies": {
+    "protractor": "^5.4.2"
+  },
+  "license": "MIT"
+}
