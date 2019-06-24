@@ -10,8 +10,8 @@ exports.config = {
   'capabilities': {
     'build': 'protractor-LambdaTest-Single',
     'browserName': 'chrome',
-    'version':'67.0',
-    'platform': 'WIN10',
+    'version':'73.0',
+    'platform': 'Windows 10',
     'video': true,
     'network': true,
     'console': true,
@@ -25,9 +25,11 @@ exports.config = {
           spec_id = parseInt(specStr[specStr.length -1])
           browser.getProcessedConfig().then(function (config) {
             var fullName = config.specs[spec_id];
-            //var fileName = fullName.substring(fullName.lastIndexOf('/')+1);
             browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
           });
+        },
+        specDone: function(result) {
+          browser.executeScript("lambda-status="+result.status);
         }
       };
       jasmine.getEnv().addReporter(myReporter);

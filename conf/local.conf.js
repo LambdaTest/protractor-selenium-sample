@@ -11,29 +11,30 @@ exports.config = {
     'name': 'single-test',
     'browserName': 'chrome',
     'version':'67.0',
-    'platform': 'WIN10',
+    'platform': 'Windows 10',
     'video': true,
     'network': true,
     'console': true,
     'visual': true,
-    'screen_resolution': '1024x768',
     'tunnel': true
   },
   onPrepare: () => {
 
     myReporter = {
-        specStarted: function(result) {
-          specStr= result.id
-          spec_id = parseInt(specStr[specStr.length -1])
-          browser.getProcessedConfig().then(function (config) {
-            var fullName = config.specs[spec_id];
-            //var fileName = fullName.substring(fullName.lastIndexOf('/')+1);
-            browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
-          });
-        }
-      };
-      jasmine.getEnv().addReporter(myReporter);
-  },
+      specStarted: function(result) {
+        specStr= result.id
+        spec_id = parseInt(specStr[specStr.length -1])
+        browser.getProcessedConfig().then(function (config) {
+          var fullName = config.specs[spec_id];
+          browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
+        });
+      },
+      specDone: function(result) {
+        browser.executeScript("lambda-status="+result.status);
+      }
+    };
+    jasmine.getEnv().addReporter(myReporter);
+},
   onComplete: () => {
     browser.quit();
   }

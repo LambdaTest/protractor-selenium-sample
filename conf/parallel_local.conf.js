@@ -14,41 +14,43 @@ exports.config = {
 
   'multiCapabilities': [{
     'browserName': 'Chrome',
-    'version':'67.0',
-    'platform': 'WIN10'
+    'version':'71.0',
+    'platform': 'Windows 10'
   },{
     'browserName': 'Safari',
-    'version':'11.1',
-    'platform': 'macOS 10.12'
+    'version':'12.0',
+    'platform': 'macOS Mojave'
   },{
-    'browserName': 'Edge',
-    'version':'15.0',
-    'platform': 'WIN10'
+    'browserName': 'MicrosoftEdge',
+    'version':'18.0',
+    'platform': 'Windows 10'
   },{
     'browserName': 'Firefox',
-    'version':'62.0',
-    'platform': 'WIN10'
+    'version':'66.0',
+    'platform': 'Windows 10'
   },{
     'browserName': 'Internet explorer',
-    'version':'10.0',
-    'platform': 'WIN10'
+    'version':'11.0',
+    'platform': 'Windows 10'
   }],
 
   onPrepare: () => {
 
     myReporter = {
-        specStarted: function(result) {
-          specStr= result.id
-          spec_id = parseInt(specStr[specStr.length -1])
-          browser.getProcessedConfig().then(function (config) {
-            var fullName = config.specs[spec_id];
-            //var fileName = fullName.substring(fullName.lastIndexOf('/')+1);
-            browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
-          });
-        }
-      };
-      jasmine.getEnv().addReporter(myReporter);
-  },
+      specStarted: function(result) {
+        specStr= result.id
+        spec_id = parseInt(specStr[specStr.length -1])
+        browser.getProcessedConfig().then(function (config) {
+          var fullName = config.specs[spec_id];
+          browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
+        });
+      },
+      specDone: function(result) {
+        browser.executeScript("lambda-status="+result.status);
+      }
+    };
+    jasmine.getEnv().addReporter(myReporter);
+},
   onComplete: () => {
     browser.quit();
   }
