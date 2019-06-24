@@ -8,7 +8,9 @@
     "single": "./node_modules/.bin/protractor conf/single.conf.js",
     "local": "./node_modules/.bin/protractor conf/local.conf.js",
     "parallel": "./node_modules/.bin/protractor conf/parallel.conf.js",
-    "parallel_local": "./node_modules/.bin/protractor conf/parallel_local.conf.js"
+    "parallel_local": "./node_modules/.bin/protractor conf/parallel_local.conf.js",
+    "uploadfile": "./node_modules/.bin/protractor conf/fileupload.conf.js",
+    "nonanguploadfile": "./node_modules/.bin/protractor conf/nonAngularfileupload.conf.js"
   },
   "repository": {
     "type": "git",

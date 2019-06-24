@@ -3,14 +3,14 @@ username= process.env.LT_USERNAME || "<your username>",
 accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
 
 exports.config = {
-  'specs': ['../specs/single.js'],
+  'specs': ['../specs/fileupload.js'],
 
   seleniumAddress: 'https://'+ username +':'+ accessKey  +'@hub.lambdatest.com/wd/hub',
 
   'capabilities': {
     'build': 'protractor-LambdaTest-Single',
     'browserName': 'chrome',
-    'version':'67.0',
+    'version':'73.0',
     'platform': 'WIN10',
     'video': true,
     'network': true,

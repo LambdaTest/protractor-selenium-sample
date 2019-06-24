@@ -8,30 +8,29 @@ exports.config = {
 
   'commonCapabilities': {
     'build': 'protractor-selenium-sample',
-    'name': 'parallel-test',
-    'tunnel': true
+    'tunnel': false
   },
 
   'multiCapabilities': [{
     'browserName': 'Chrome',
-    'version':'67.0',
-    'platform': 'WIN10'
+    'version':'71.0',
+    'platform': 'Windows 10'
   },{
     'browserName': 'Safari',
-    'version':'11.1',
-    'platform': 'macOS 10.12'
+    'version':'12.0',
+    'platform': 'macOS Mojave'
   },{
-    'browserName': 'Edge',
-    'version':'15.0',
-    'platform': 'WIN10'
+    'browserName': 'MicrosoftEdge',
+    'version':'18.0',
+    'platform': 'Windows 10'
   },{
     'browserName': 'Firefox',
-    'version':'62.0',
-    'platform': 'WIN10'
+    'version':'66.0',
+    'platform': 'Windows 10'
   },{
     'browserName': 'Internet explorer',
-    'version':'10.0',
-    'platform': 'WIN10'
+    'version':'11.0',
+    'platform': 'Windows 10'
   }],
 
   onPrepare: () => {
