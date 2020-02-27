@@ -43,7 +43,6 @@ Some Safari & IE browsers, doesn't support automatic resolution of the URL strin
 
 ### Running Tests
   * To run a single test, run `npm run single`
-  * To run local tests, run `npm run local`
   * To run parallel tests, run `npm run parallel`
   
 You will see the test result in the [lambdatest Dashboard](https://automation.lambdatest.com)
