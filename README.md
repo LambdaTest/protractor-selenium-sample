@@ -215,27 +215,41 @@ exports.config = {
   }],
 
 ```
+Know how many concurrent sessions are needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
 
 ## Running your tests
 - To run a single test, run `npm run single`
 - To run parallel tests, run `npm run parallel`
-
- Know how many concurrent sessions needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
  
  #### Output from the command line 
  
+ 
+##### When running single.js
  ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Command-line-Protractor.png)
+ 
+##### When running parallel.js
+ 
+![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/command-line-parallel-output.png) 
  
 Below we see a screenshot that depicts our Protractor code is running over different browsers i.e Chrome, Firefox, IE, Edge, and Safari on the LambdaTest Selenium Grid Platform. The results of the test script execution along with the logs can be accessed from the LambdaTest Automation dashboard.
 
-
+##### When running single.js
 ![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
+
+##### When running parallel.js
+![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/parallel-automation.png)
 
 
 ###  Performing an automation test on your local hosted application| Local Testing
 To perform an automation test on a file or application hosted on your local environment or behind firewall, follow the given steps: 
 
 - Set tunnel value to `true` in test capabilities
+
+So for example, if I have to run the above script for a locally hosted web-application then my capabilities class would be :
+
+```
+"tunnel" : true;
+```
 
 > OS specific instructions to download and setup tunnel binary can be found at the following links.
 >    - [Windows](https://www.lambdatest.com/support/docs/display/TD/Local+Testing+For+Windows)
