@@ -33,7 +33,12 @@ $ brew install node
    * Navigate to the folder in which you have cloned or downloaded the repo and install dependencies by using `npm install`
    * Update `fileupload.conf.js` files inside the `conf/` directory with your LambdaTest Username and Access Key. 
    
-## Executing Protractor JavaScript Testing
+## Executing Protractor JavaScript Test
+
+### Test Scenario 
+
+The following code will run a test on LambdaTest Selenium Grid which will open a [URL](https://lambdatest.github.io/sample-todo-app/) and then strike the first and second items in the list, followed by addition of a new item. After this, it will quit the browser. 
+
 
 To execute Protractor Javascript test on LambdaTest Selenium Grid, we'll need to navigate to the folder in which `conf` files are present. Inside this directory, we can run the the tests in single or parallel. 
 
@@ -84,10 +89,6 @@ exports.config = {
 };
 
 ```
-### Test Scenario 
-
-The following code will run a test on LambdaTest Selenium Grid which will open a [URL](https://lambdatest.github.io/sample-todo-app/) and then strike the first and second items in the list, followed by addition of a new item. After this, it will quit the browser. 
-
 
 Now we have a first script ready. Let us specify the capabilities to run the script on LambdaTest cloud-based Selenium Grid. LambdaTest provides a [capability generator](https://www.lambdatest.com/capabilities-generator/) to the capabilities in all the major languages. All you need to do is to select the OS, Resolution, Browser, Version and the code will be generated. You can just copy it and paste it in your code.
 
