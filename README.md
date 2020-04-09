@@ -106,6 +106,16 @@ Now we have a first script ready. Let us specify the capabilities to run the scr
   ```
 
 This code will fire up a virtual machine with Chrome 73 on Windows 10 and will perform the given function. 
+
+
+ #### Output from the command line 
+
+ ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Command-line-Protractor.png)
+ 
+ ##### Output on LambdaTest Dashboard
+![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
+
+
 ## Parallel Testing for Protractor JavaScript
 
 Will use the same test script over different configuration to demonstrate parallel testing. Parallel testing with Protractor will help you to run multiple test cases simultaneously.
@@ -217,28 +227,19 @@ exports.config = {
 ```
 Know how many concurrent sessions are needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
 
-## Running your tests
-- To run a single test, run `npm run single`
-- To run parallel tests, run `npm run parallel`
- 
- #### Output from the command line 
- 
- 
-##### When running single.js
- ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Command-line-Protractor.png)
- 
-##### When running parallel.js
+#### Output from the command line 
  
 ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/command-line-parallel-output.png) 
  
-Below we see a screenshot that depicts our Protractor code is running over different browsers i.e Chrome, Firefox, IE, Edge, and Safari on the LambdaTest Selenium Grid Platform. The results of the test script execution along with the logs can be accessed from the LambdaTest Automation dashboard.
+Below we see a screenshot that depicts our Protractor code is running over different browsers i.e Chrome, Firefox, IE, Edge, and Safari on the LambdaTest Selenium Grid Platform. The results of the test script execution along with the logs can be accessed from the [LambdaTest Automation dashboard](automation.lambdatest.com).
 
-##### When running single.js
-![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
-
-##### When running parallel.js
+#### Output from Automation Dashboard
 ![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/parallel-automation.png)
 
+
+## Running your tests
+- To run a single test, run `npm run single`
+- To run parallel tests, run `npm run parallel`
 
 ###  Performing an automation test on your local hosted application| Local Testing
 To perform an automation test on a file or application hosted on your local environment or behind firewall, follow the given steps: 
