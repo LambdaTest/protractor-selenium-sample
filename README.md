@@ -223,7 +223,7 @@ exports.config = {
 
  Know how many concurrent sessions needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
  
- Output from the command line 
+ #### Output from the command line 
  
  ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Command-line-Protractor.png)
  
