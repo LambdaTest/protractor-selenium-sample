@@ -106,7 +106,7 @@ Now we have a first script ready. Let us specify the capabilities to run the scr
 This code will fire up a virtual machine with Chrome 73 on Windows 10 and will perform the given function. 
 ## Parallel Testing for Protractor JavaScript
 
-Will use the same test script over different configration to demonstarte parallel testing. Parallel testing with Protractor will help you to run multiple test cases simultaneously.
+Will use the same test script over different configuration to demonstrate parallel testing. Parallel testing with Protractor will help you to run multiple test cases simultaneously.
 
 * **Parallel Test**- Here is JavaScript file to run Protractor Testing on a parallel environment i.e. different operating system (Windows 10 and Mac OS Catalina) and different browsers (Chrome, Mozilla Firefox,Internet Explore, Edge, and Safari).
 
@@ -175,7 +175,7 @@ exports.config.multiCapabilities.forEach(function(caps){
 });
 ```
 
-Now lets define the capabilities. Since, we are performig parallel testing over different configrations we will make use of <code>multiCapabilities[]</code>. 
+Now lets define the capabilities. Since, we are performing parallel testing over different configurations we will make use of <code>multiCapabilities[]</code>. 
 ```
 username= process.env.LT_USERNAME || "<your username>",
 accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
