@@ -1,7 +1,6 @@
 # Protractor Tutorial 
 ---
 ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
-
 ![Protractor Logo](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/1_8FualX4XQbOUJDrg8yQAjQ.jpeg)
 
 
@@ -121,6 +120,10 @@ This code will fire up a virtual machine with Chrome 73 on Windows 10 and will p
 Will use the same test script over different configuration to demonstrate parallel testing. Parallel testing with Protractor will help you to run multiple test cases simultaneously.
 
 * **Parallel Test**- Here is JavaScript file to run Protractor Testing on a parallel environment i.e. different operating system (Windows 10 and Mac OS Catalina) and different browsers (Chrome, Mozilla Firefox,Internet Explore, Edge, and Safari).
+
+To start a test, we'd need to run the following command: ```npm run parallel``` This command will run the following code in your LambdaTest Selenium Grid.
+
+
 
 ```
 username= process.env.LT_USERNAME || "<your username>",
