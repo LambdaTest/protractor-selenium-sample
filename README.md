@@ -28,7 +28,7 @@ $ brew install node
     set LT_ACCESS_KEY="YOUR ACCESS KEY"
 
     ```
-3. Setup for Running the test
+## Setup for Running the test
    * Clone the github repo in your local browser using ```git clone https://github.com/LambdaTest/protractor-selenium-sample.git``` or download it directly from [here](https://github.com/LambdaTest/protractor-selenium-sample/archive/master.zip)
    * Navigate to the folder in which you have cloned or downloaded the repo and install dependencies by using `npm install`
    * Update `fileupload.conf.js` files inside the `conf/` directory with your LambdaTest Username and Access Key. 
@@ -37,8 +37,7 @@ $ brew install node
 
 To execute Protractor Javascript test on LambdaTest Selenium Grid, we'll need to navigate to the folder in which `conf` files are present. Inside this directory, we can run the the tests in single or parallel. 
 
-### Running a Single Test
-To start a single test, we'd need to run the following command: 
+To start a test, say we run a test with the file name "single" we'd need to run the following command: 
 ```npm run single``` 
 This command will run the following code in your LambdaTest Selenium Grid. 
 
@@ -85,16 +84,14 @@ exports.config = {
 };
 
 ```
-Now we have a first script ready. Let us specify the capabilituies to run the script on LambdaTest cloud-based Selenium Grid.
-```username= process.env.LT_USERNAME || "<your username>",
-accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
+### Test Scenario 
 
-exports.config = {
-  'specs': ['../specs/single.js'],
+The following code will run a test on LambdaTest Selenium Grid which will open a [URL](https://lambdatest.github.io/sample-todo-app/) and then strike the first and second items in the list, followed by addition of a new item. After this, it will quit the browser. 
 
-  seleniumAddress: 'https://'+ username +':'+ accessKey  +'@hub.lambdatest.com/wd/hub',
 
-  'capabilities': {
+Now we have a first script ready. Let us specify the capabilities to run the script on LambdaTest cloud-based Selenium Grid. LambdaTest provides a [capability generator](https://www.lambdatest.com/capabilities-generator/) to the capabilities in all the major languages. All you need to do is to select the OS, Resolution, Browser, Version and the code will be generated. You can just copy it and paste it in your code.
+
+```  'capabilities': {
     'build': 'protractor-LambdaTest-Single',
     'browserName': 'chrome',
     'version':'73.0',
@@ -232,8 +229,11 @@ Below we see a screenshot that depicts our Protractor code is running over diffe
 
 ![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
 
-#####  Routing traffic through your local machine
+#####  Performing an automation test on your local hosted application| Local Testing
+To perform an automation test on a file or application hosted on your local environment or behind firewall, follow the given steps: 
+
 - Set tunnel value to `true` in test capabilities
+
 > OS specific instructions to download and setup tunnel binary can be found at the following links.
 >    - [Windows](https://www.lambdatest.com/support/docs/display/TD/Local+Testing+For+Windows)
 >    - [Mac](https://www.lambdatest.com/support/docs/display/TD/Local+Testing+For+MacOS)
