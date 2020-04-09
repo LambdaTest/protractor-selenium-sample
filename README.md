@@ -229,7 +229,8 @@ Below we see a screenshot that depicts our Protractor code is running over diffe
 
 ![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
 
-####  Performing an automation test on your local hosted application| Local Testing
+
+###  Performing an automation test on your local hosted application| Local Testing
 To perform an automation test on a file or application hosted on your local environment or behind firewall, follow the given steps: 
 
 - Set tunnel value to `true` in test capabilities
