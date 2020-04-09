@@ -1,6 +1,7 @@
 # Protractor Tutorial 
 ---
 ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
+![Protractor Logo](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/1_8FualX4XQbOUJDrg8yQAjQ.jpeg)
 
 
 This tutorial will help you automate your selenium tests using Protractor on LambdaTest Cloud Selenium Grid. 
@@ -223,12 +224,12 @@ exports.config = {
  
  Output from the command line 
  
- INSERT HERE
+ ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Command-line-Protractor.png)
  
 Below we see a screenshot that depicts our Protractor code is running over different browsers i.e Chrome, Firefox, IE, Edge, and Safari on the LambdaTest Selenium Grid Platform. The results of the test script execution along with the logs can be accessed from the LambdaTest Automation dashboard.
 
 
-INSERT HERE
+![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
 
 #####  Routing traffic through your local machine
 - Set tunnel value to `true` in test capabilities
