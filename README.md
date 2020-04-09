@@ -1,6 +1,7 @@
 # Protractor Tutorial 
 ---
 ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
+
 ![Protractor Logo](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/1_8FualX4XQbOUJDrg8yQAjQ.jpeg)
 
 
