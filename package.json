@@ -17,6 +17,7 @@
     "url": "https://github.com/lambdatest/protractor-selenium-sample"
   },
   "dependencies": {
+    "@lambdatest/node-tunnel": "^2.0.1",
     "protractor": "^5.4.2"
   },
   "license": "MIT"
