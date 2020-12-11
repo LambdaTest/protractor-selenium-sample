@@ -10,13 +10,8 @@ exports.config = {
     'build': 'protractor-selenium-sample',
     'name': 'single-test',
     'browserName': 'chrome',
-    'version':'67.0',
-    'platform': 'Windows 10',
-    'video': true,
-    'network': true,
-    'console': true,
-    'visual': true,
-    'tunnel': true
+    'version':'latest',
+    'platform': 'Windows 10'
   },
   onPrepare: () => {
 

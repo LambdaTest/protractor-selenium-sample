@@ -10,12 +10,8 @@ exports.config = {
   'capabilities': {
     'build': 'protractor-LambdaTest-Single',
     'browserName': 'chrome',
-    'version':'73.0',
-    'platform': 'Windows 10',
-    'video': true,
-    'network': true,
-    'console': true,
-    'visual': true
+    'version':'latest',
+    'platform': 'Windows 10'
   },
   onPrepare: () => {
 
