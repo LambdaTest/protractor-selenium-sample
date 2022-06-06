@@ -1,275 +1,238 @@
-# Protractor Tutorial 
----
-![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
+# Run Selenium Tests With Protractor On LambdaTest
 
-![Protractor Logo](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/1_8FualX4XQbOUJDrg8yQAjQ.jpeg)
+<p align="center">
+<img height="500" src="https://user-images.githubusercontent.com/95698164/172000250-2a4e49e5-ec0b-452a-b1bc-3674e75ecd76.png">
+</p>
 
+<p align="center">
+  <a href="https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample?" target="_bank">Blog</a>
+  &nbsp; &#8901; &nbsp;
+  <a href="https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample" target="_bank">Docs</a>
+  &nbsp; &#8901; &nbsp;
+  <a href="https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample" target="_bank">Learning Hub</a>
+  &nbsp; &#8901; &nbsp;
+  <a href="https://www.lambdatest.com/newsletter/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample" target="_bank">Newsletter</a>
+  &nbsp; &#8901; &nbsp;
+  <a href="https://www.lambdatest.com/certifications/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample" target="_bank">Certifications</a>
+  &nbsp; &#8901; &nbsp;
+  <a href="https://www.youtube.com/c/LambdaTest" target="_bank">YouTube</a>
+</p>
+&emsp;
+&emsp;
+&emsp;
 
-This tutorial will help you automate your selenium tests using Protractor on LambdaTest Cloud Selenium Grid. 
-## Prerequisites for Protractor tutorial for Selenium and JavaScript
-* **Node.js and 
-Package Manager (npm)** : Install Node.js from [here](https://nodejs.org/en/#home-downloadhead) Or Install Node.js with [Homebrew](http://brew.sh/)
+*Learn how to use Protractor framework to configure and run your JavaScript automation testing scripts on the [LambdaTest Selenium cloud platform](https://www.lambdatest.com/selenium-automation).*
+
+[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register)
+
+## Table of Contents
+
+* [Pre-requisites](#pre-requisites)
+* [Run Your First Test](#run-your-first-test)
+* [Executing the Test](#executing-the-test)
+* [Testing Locally Hosted or Privately Hosted Projects](#testing-locally-hosted-or-privately-hosted-projects)
+
+## Pre-requisites 
+
+Before getting started with Selenium automation testing on LambdaTest, you need to:
+
+* Download and install **NodeJS**. You should be having **NodeJS v6** or newer. Click [here](https://nodejs.org/en/) to download.
+* Make sure you are using the latest version of **JavaScript**.
+* Install **npm** from the official website by clicking [here](https://www.npmjs.com/).
+* Download [Selenium JavaScript bindings](https://www.selenium.dev/downloads/) from the official website. Latest versions of **Selenium Client** and **WebDriver** are ideal for running your JavaScript automation testing script on LambdaTest’s Selenium Grid.
+
+### Installing Selenium Dependencies and tutorial repo
+
+Clone the LambdaTest’s [protractor-selenium-sample repository](https://github.com/LambdaTest/protractor-selenium-sample) and navigate to the code directory as shown below:
+
+```bash
+git clone https://github.com/LambdaTest/protractor-selenium-sample
+cd protractor-selenium-sample
 ```
-$ brew install node
+Install the required project dependencies using the command below:
+
+```bash
+npm install
 ```
 
-* **LambdaTest Credentials**
-   * Set LambdaTest username and access key in environment variables. It can be obtained from [LambdaTest Automation Dashboard](https://automation.lambdatest.com/)    
-    example:
-   - For linux/mac
-    ```
-    export LT_USERNAME="YOUR_USERNAME"
-    export LT_ACCESS_KEY="YOUR ACCESS KEY"
+### Setting up Your Authentication
 
-    ```
-    - For Windows
-    ```
-    set LT_USERNAME="YOUR_USERNAME"
-    set LT_ACCESS_KEY="YOUR ACCESS KEY"
+Make sure you have your LambdaTest credentials with you to run test automation scripts on LambdaTest Selenium Grid. You can obtain these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build) or through [LambdaTest Profile](https://accounts.lambdatest.com/login).
 
-    ```
-## Setup for Running the test
-   * Clone the github repo in your local browser using ```git clone https://github.com/LambdaTest/protractor-selenium-sample.git``` or download it directly from [here](https://github.com/LambdaTest/protractor-selenium-sample/archive/master.zip)
-   * Navigate to the folder in which you have cloned or downloaded the repo and install dependencies by using `npm install`
-   * Update `fileupload.conf.js` files inside the `conf/` directory with your LambdaTest Username and Access Key. 
-   
-## Executing Protractor JavaScript Test
-
-### Test Scenario 
-
-The following code will run a test on LambdaTest Selenium Grid which will open a [URL](https://lambdatest.github.io/sample-todo-app/) and then strike the first and second items in the list, followed by addition of a new item. After this, it will quit the browser. 
-
-
-To execute Protractor Javascript test on LambdaTest Selenium Grid, we'll need to navigate to the folder in which `conf` files are present. Inside this directory, we can run the the tests in single or parallel. 
-
-To start a test, say we run a test with the file name "single" we'd need to run the following command: 
-```npm run single``` 
-This command will run the following code in your LambdaTest Selenium Grid. 
-
-```
-username= process.env.LT_USERNAME || "<your username>",
-accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
-
-exports.config = {
-  'specs': ['../specs/single.js'],
-
-  seleniumAddress: 'https://'+ username +':'+ accessKey  +'@hub.lambdatest.com/wd/hub',
-
-  'capabilities': {
-    'build': 'protractor-LambdaTest-Single',
-    'browserName': 'chrome',
-    'version':'73.0',
-    'platform': 'Windows 10',
-    'video': true,
-    'network': true,
-    'console': true,
-    'visual': true
-  },
-  onPrepare: () => {
-
-    myReporter = {
-        specStarted: function(result) {
-          specStr= result.id
-          spec_id = parseInt(specStr[specStr.length -1])
-          browser.getProcessedConfig().then(function (config) {
-            var fullName = config.specs[spec_id];
-            browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
-          });
-        },
-        specDone: function(result) {
-          browser.executeScript("lambda-status="+result.status);
-        }
-      };
-      jasmine.getEnv().addReporter(myReporter);
-  },
-  onComplete: () => {
-    browser.quit();
-  }
-
-};
-
-```
-### Desired Capabilities 
-
-Now we have a first script ready. Let us specify the capabilities to run the script on LambdaTest cloud-based Selenium Grid. LambdaTest provides a [capability generator](https://www.lambdatest.com/capabilities-generator/) to the capabilities in all the major languages. All you need to do is to select the OS, Resolution, Browser, Version and the code will be generated. You can just copy it and paste it in your code.
-
-```  'capabilities': {
-    'build': 'protractor-LambdaTest-Single',
-    'browserName': 'chrome',
-    'version':'73.0',
-    'platform': 'Windows 10',
-    'video': true,
-    'network': true,
-    'console': true,
-    'visual': true
-  },
+Set LambdaTest `Username` and `Access Key` in environment variables.
+  * For **Linux/macOS**:
+  ```bash
+  export LT_USERNAME="YOUR_USERNAME" export LT_ACCESS_KEY="YOUR ACCESS KEY"
+  ```
+  * For **Windows**:
+  ```bash
+  set LT_USERNAME="YOUR_USERNAME" set LT_ACCESS_KEY="YOUR ACCESS KEY"
   ```
 
-This code will fire up a virtual machine with Chrome 73 on Windows 10 and will perform the given function. 
+## Run Your First Test
+
+### Sample Test with ProtractorJS
+
+Let’s check a sample **Protractor** Selenium code running on LambdaTest Selenium Grid. This is a simple Protractor test automation script that tests a sample to-do list app. 
+```js
+ // single.js
+
+describe('Add todo Lists', function () {
+    browser.ignoreSynchronization = true;
+
+    it('Add Customer Test', function () {
 
 
- #### Output from the command line 
+        browser.get('https://lambdatest.github.io/sample-todo-app/');
 
- ![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Command-line-Protractor.png)
- 
- ##### Output on LambdaTest Dashboard
-![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/Automation-dashboard.png)
+	browser.driver.findElement(by.name('li1')).then(function (foundElement) {
+                foundElement.click();
+            });
+
+	browser.driver.findElement(by.name('li2')).then(function (foundElement) {
+                foundElement.click();
+            });
+
+	browser.driver.findElement(by.id('sampletodotext')).then(function (foundElement) {
+            foundElement.clear();
+            foundElement.sendKeys("Yey, Let's add it to list");
+            });
+
+	browser.driver.findElement(by.id('addbutton')).then(function (foundElement) {
+                foundElement.click();
+            });
 
 
-## Parallel Testing for Protractor JavaScript
+		var foo = element(by.xpath('//html/body/div/div/div/ul/li[6]/span'));
+        	expect(foo.getText()).toEqual("Yey, Let's add it to list");
 
-Will use the same test script over different configuration to demonstrate parallel testing. Parallel testing with Protractor will help you to run multiple test cases simultaneously.
+    });
 
-* **Parallel Test**- Here is JavaScript file to run Protractor Testing on a parallel environment i.e. different operating system (Windows 10 and Mac OS Catalina) and different browsers (Chrome, Mozilla Firefox,Internet Explore, Edge, and Safari).
-
-To start a test, we'd need to run the following command: ```npm run parallel``` This command will run the following code in your LambdaTest Selenium Grid.
-
-
-
-```
-username= process.env.LT_USERNAME || "<your username>",
-accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
-
-exports.config = {
-  'specs': [ '../specs/single.js' ],
-
-  seleniumAddress: 'https://'+username+':'+accessKey+'@hub.lambdatest.com/wd/hub',
-
-  'commonCapabilities': {
-    'build': 'protractor-selenium-sample',
-    'tunnel': false
-  },
-
-  'multiCapabilities': [{
-    'browserName': 'Chrome',
-    'version':'71.0',
-    'platform': 'Windows 10'
-  },{
-    'browserName': 'Safari',
-    'version':'12.0',
-    'platform': 'macOS Mojave'
-  },{
-    'browserName': 'MicrosoftEdge',
-    'version':'18.0',
-    'platform': 'Windows 10'
-  },{
-    'browserName': 'Firefox',
-    'version':'66.0',
-    'platform': 'Windows 10'
-  },{
-    'browserName': 'Internet explorer',
-    'version':'11.0',
-    'platform': 'Windows 10'
-  }],
-
-  onPrepare: () => {
-
-    myReporter = {
-      specStarted: function(result) {
-        specStr= result.id
-        spec_id = parseInt(specStr[specStr.length -1])
-        browser.getProcessedConfig().then(function (config) {
-          var fullName = config.specs[spec_id];
-          browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
-        });
-      },
-      specDone: function(result) {
-        browser.executeScript("lambda-status="+result.status);
-      }
-    };
-    jasmine.getEnv().addReporter(myReporter);
-},
-  onComplete: () => {
-    browser.quit();
-  }
-
-};
-
-// Code to support common capabilities
-exports.config.multiCapabilities.forEach(function(caps){
-  for(var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });
 ```
 
-Now lets define the capabilities. Since, we are performing parallel testing over different configurations we will make use of <code>multiCapabilities[]</code>. 
-```
-username= process.env.LT_USERNAME || "<your username>",
-accessKey=  process.env.LT_ACCESS_KEY || "<your accessKey>",
+### Configuration of Your Test Capabilities
 
-exports.config = {
-  'specs': [ '../specs/single.js' ],
-
-  seleniumAddress: 'https://'+username+':'+accessKey+'@hub.lambdatest.com/wd/hub',
-
-  'commonCapabilities': {
-    'build': 'protractor-selenium-sample',
-    'tunnel': false
+In this code, we are passing browser, browser version, and operating system information, along with LambdaTest Selenium grid capabilities via capabilities object. The capabilities object in the above code are defined as:
+```js
+ capabilities = {
+    build: 'protractor-LambdaTest-Single',
+    browserName: 'chrome',
+    version:'latest',
+    platform: 'Windows 10',
   },
-
-  'multiCapabilities': [{
-    'browserName': 'Chrome',
-    'version':'71.0',
-    'platform': 'Windows 10'
-  },{
-    'browserName': 'Safari',
-    'version':'12.0',
-    'platform': 'macOS Mojave'
-  },{
-    'browserName': 'MicrosoftEdge',
-    'version':'18.0',
-    'platform': 'Windows 10'
-  },{
-    'browserName': 'Firefox',
-    'version':'66.0',
-    'platform': 'Windows 10'
-  },{
-    'browserName': 'Internet explorer',
-    'version':'11.0',
-    'platform': 'Windows 10'
-  }],
-
 ```
-Know how many concurrent sessions are needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
+> You can generate capabilities for your test requirements with the help of our inbuilt **[Capabilities Generator tool](https://www.lambdatest.com/capabilities-generator/)**.
 
-#### Output from the command line 
- 
-![Output](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/command-line-parallel-output.png) 
- 
-Below we see a screenshot that depicts our Protractor code is running over different browsers i.e Chrome, Firefox, IE, Edge, and Safari on the LambdaTest Selenium Grid Platform. The results of the test script execution along with the logs can be accessed from the [LambdaTest Automation dashboard](automation.lambdatest.com).
+## Executing the Test
 
-#### Output from Automation Dashboard
-![Automation Dashboard](https://www.lambdatest.com/blog/wp-content/uploads/2020/04/parallel-automation.png)
+The tests can be executed in the terminal using the following command:
 
-
-## Running your tests
-- To run a single test, run `npm run single`
-- To run parallel tests, run `npm run parallel`
-
-###  Performing an automation test on your local hosted application| Local Testing
-To perform an automation test on a file or application hosted on your local environment or behind firewall, follow the given steps: 
-
-- Set tunnel value to `true` in test capabilities
-
-So for example, if I have to run the above script for a locally hosted web-application then my capabilities class would be :
-
+```bash
+npm run single
 ```
-"tunnel" : true;
+Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on [LambdaTest automation dashboard](https://automation.lambdatest.com/build). LambdaTest Automation Dashboard will help you view all your text logs, screenshots and video recording for your entire automation tests.
+
+## Running Your Parallel Tests Using Protractor Framework
+
+### Executing Parallel Tests with Protractor
+
+To run parallel tests using **Protractor**, we would have to execute the below command in the terminal:
+
+```bash
+npm run parallel
+```
+Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on [LambdaTest automation dashboard](https://automation.lambdatest.com/build).
+
+## Testing Locally Hosted or Privately Hosted Projects
+
+You can test your locally hosted or privately hosted projects with [LambdaTest Selenium grid cloud](https://www.lambdatest.com/selenium-automation) using LambdaTest Tunnel app. All you would have to do is set up an SSH tunnel using LambdaTest Tunnel app and pass toggle `tunnel = True` via desired capabilities. LambdaTest Tunnel establishes a secure SSH protocol based tunnel that allows you in testing your locally hosted or privately hosted pages, even before they are made live.
+
+>Refer our [LambdaTest Tunnel documentation](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/) for more information.
+
+Here’s how you can establish LambdaTest Tunnel.
+
+>Download the binary file of:
+* [LambdaTest Tunnel for Windows](https://downloads.lambdatest.com/tunnel/v3/windows/64bit/LT_Windows.zip)
+* [LambdaTest Tunnel for Mac](https://downloads.lambdatest.com/tunnel/v3/mac/64bit/LT_Mac.zip)
+* [LambdaTest Tunnel for Linux](https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip)
+
+Open command prompt and navigate to the binary folder.
+
+Run the following command:
+```bash
+LT -user {user’s login email} -key {user’s access key}
+```
+So if your user name is lambdatest@example.com and key is 123456, the command would be:
+```bash
+LT -user lambdatest@example.com -key 123456
+```
+Once you are able to connect **LambdaTest Tunnel** successfully, you would just have to pass on tunnel capabilities in the code shown below :
+
+**Tunnel Capability**
+```js
+const capabilities = {
+        tunnel: true,
+}
 ```
 
-> OS specific instructions to download and setup tunnel binary can be found at the following links.
->    - [Windows](https://www.lambdatest.com/support/docs/display/TD/Local+Testing+For+Windows)
->    - [Mac](https://www.lambdatest.com/support/docs/display/TD/Local+Testing+For+MacOS)
->    - [Linux](https://www.lambdatest.com/support/docs/display/TD/Local+Testing+For+Linux)
+## Additional Links
 
-### Important Note:
-Some Safari & IE browsers, doesn't support automatic resolution of the URL string "localhost". Therefore if you test on URLs like "http://localhost/" or "http://localhost:8080" etc, you would get an error in these browsers. A possible solution is to use "localhost.lambdatest.com" or replace the string "localhost" with machine IP address. For example if you wanted to test "http://localhost/dashboard" or, and your machine IP is 192.168.2.6 you can instead test on "http://192.168.2.6/dashboard" or "http://localhost.lambdatest.com/dashboard".
+* [Advanced Configuration for Capabilities](https://www.lambdatest.com/support/docs/selenium-automation-capabilities/)
+* [How to test locally hosted apps](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/)
+* [How to integrate LambdaTest with CI/CD](https://www.lambdatest.com/support/docs/integrations-with-ci-cd-tools/)
 
+## Tutorials 📙
 
+Check out our latest tutorials on JavaScript automation testing 👇
+
+* [Automated Cross Browser Testing With Protractor & Selenium](https://www.lambdatest.com/blog/automated-cross-browser-testing-with-protractor-selenium/)
+* [Complete Guide To Selenium Locators In Protractor (Examples)](https://www.lambdatest.com/blog/selenium-locators-in-protractor/)
+* [Protractor Tutorial: Handle Mouse Actions & Keyboard Events](https://www.lambdatest.com/blog/protractor-tutorial-handle-mouse-actions-keyboard-events/)
+* [Complete Guide To Handle Multiple Windows With Selenium & Protractor](https://www.lambdatest.com/blog/handle-multiple-windows-selenium-protractor/)
+* [Protractor Tutorial: Handling Timeouts With Selenium](https://www.lambdatest.com/blog/protractor-tutorial-handling-timeouts-with-selenium/)
+* [Protractor Tutorial: Handling iFrames & Frames in Selenium](https://www.lambdatest.com/blog/protractor-tutorial-handling-iframes-frames-in-selenium/)
+* [How To Handle Alerts And Popups In Protractor With Selenium?](https://www.lambdatest.com/blog/handle-alerts-popups-in-selenium-protractor/)
+* [How To Debug Protractor Tests for Selenium Test Automation?](https://www.lambdatest.com/blog/how-to-debug-protractor-tests-for-selenium-test-automation/)
+
+## Documentation & Resources :books:
+      
+Visit the following links to learn more about LambdaTest's features, setup and tutorials around test automation, mobile app testing, responsive testing, and manual testing.
+
+* [LambdaTest Documentation](https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample)
+* [LambdaTest Blog](https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample)
+* [LambdaTest Learning Hub](https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample)    
+
+## LambdaTest Community :busts_in_silhouette:
+
+The [LambdaTest Community](https://community.lambdatest.com/) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
+
+## What's New At LambdaTest ❓
+
+To stay updated with the latest features and product add-ons, visit [Changelog](https://changelog.lambdatest.com/) 
+      
 ## About LambdaTest
 
-[LambdaTest](https://www.lambdatest.com/) is a cloud based selenium grid infrastructure that can help you run automated cross browser compatibility tests on 2000+ different browser and operating system environments. LambdaTest supports all programming languages and frameworks that are supported with Selenium, and have easy integrations with all popular CI/CD platforms. It's a perfect solution to bring your [selenium automation testing](https://www.lambdatest.com/selenium-automation) to cloud based infrastructure that not only helps you increase your test coverage over multiple desktop and mobile browsers, but also allows you to cut down your test execution time by running tests on parallel.
+[LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.    
 
-### Resources
+### Features
 
-##### [SeleniumHQ Documentation](http://www.seleniumhq.org/docs/)
-##### [Protractor Documentation](https://www.protractortest.org/#/api)
+* Run Selenium, Cypress, Puppeteer, Playwright, and Appium automation tests across 3000+ real desktop and mobile environments.
+* Real-time cross browser testing on 3000+ environments.
+* Test on Real device cloud
+* Blazing fast test automation with HyperExecute
+* Accelerate testing, shorten job times and get faster feedback on code changes with Test At Scale.
+* Smart Visual Regression Testing on cloud
+* 120+ third-party integrations with your favorite tool for CI/CD, Project Management, Codeless Automation, and more.
+* Automated Screenshot testing across multiple browsers in a single click.
+* Local testing of web and mobile apps.
+* Online Accessibility Testing across 3000+ desktop and mobile browsers, browser versions, and operating systems.
+* Geolocation testing of web and mobile apps across 53+ countries.
+* LT Browser - for responsive testing across 50+ pre-installed mobile, tablets, desktop, and laptop viewports
+    
+[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register)
+      
+## We are here to help you :headphones:
+
+* Got a query? we are available 24x7 to help. [Contact Us](support@lambdatest.com)
+* For more info, visit - [LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=protractor-selenium-sample)
