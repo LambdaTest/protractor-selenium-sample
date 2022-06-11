@@ -5,9 +5,9 @@
   "description": "Selenium examples for Protractor and lambdatest Automate",
   "scripts": {
     "test": "npm run single && npm run local && npm run parallel",
-    "single": "./node_modules/.bin/protractor conf/single.conf.js",
-    "local": "./node_modules/.bin/protractor conf/local.conf.js",
-    "parallel": "./node_modules/.bin/protractor conf/parallel.conf.js",
+    "single": "cross-env CONFIG_FILE=single ./node_modules/.bin/protractor conf/single.conf.js",
+    "local": "cross-env CONFIG_FILE=local ./node_modules/.bin/protractor conf/local.conf.js",
+    "parallel": "cross-env CONFIG_FILE=parallel ./node_modules/.bin/protractor conf/parallel.conf.js",
     "parallel_local": "./node_modules/.bin/protractor conf/parallel_local.conf.js",
     "uploadfile": "./node_modules/.bin/protractor conf/fileupload.conf.js",
     "nonanguploadfile": "./node_modules/.bin/protractor conf/nonAngularfileupload.conf.js"
@@ -19,5 +19,8 @@
   "dependencies": {
     "protractor": "^5.4.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
