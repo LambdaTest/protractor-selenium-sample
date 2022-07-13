@@ -45,17 +45,17 @@ exports.config = {
           var fullName = config.specs[spec_id];
           browser.executeScript("lambda-name="+fullName.split(/(\\|\/)/g).pop())
         });
-      },
-      specDone: function(result) {
-        browser.executeScript("lambda-status="+result.status);
       }
     };
     jasmine.getEnv().addReporter(myReporter);
 },
-  onComplete: () => {
+  onComplete: (passed) => {
+    if(passed)
+      browser.executeScript("lambda-status=passed");
+    else 
+    browser.executeScript("lambda-status=failed");
     browser.quit();
   }
-
 };
 
 // Code to support common capabilities
