@@ -27,10 +27,6 @@ exports.config = {
     'browserName': 'Firefox',
     'version':'latest',
     'platform': 'Windows 10'
-  },{
-    'browserName': 'Internet explorer',
-    'version':'latest',
-    'platform': 'Windows 10'
   }],
 
   onPrepare: () => {
