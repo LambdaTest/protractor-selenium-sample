@@ -5,7 +5,7 @@ describe('Add todo Lists', function () {
     it('Add Customer Test', function () {
 
 
-        browser.get('https://lambdatest.github.io/sample-todo-app/');
+        browser.get('https://www.testmuai.com/selenium-playground/todo-app/');
 
 	browser.driver.findElement(by.name('li1')).then(function (foundElement) {
                 foundElement.click();
@@ -25,7 +25,7 @@ describe('Add todo Lists', function () {
             });
 
 
-		var foo = element(by.xpath('//html/body/div/div/div/ul/li[6]/span'));
+		var foo = element(by.xpath("//input[@name='li6']/following-sibling::span"));
         	foo.getText().then(function (text) {
                 expect(text.replace(/\s+/g, ' ').trim()).toEqual("Yey, Let's add it to list");
             });
