@@ -1,7 +1,5 @@
 # Run Selenium Tests with Protractor on TestMu AI (Formerly LambdaTest)
 
-> Automated End-to-End (E2E) testing of web apps with Selenium and Protractor across real browsers and operating systems on TestMu AI.
-
 <p align="center">
   <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
   <a href="https://www.npmjs.com/package/protractor"><img src="https://img.shields.io/npm/v/protractor.svg?style=for-the-badge&labelColor=000000" alt="Protractor version"></a>
@@ -12,7 +10,7 @@
 
 [TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
 
-With TestMu AI (Formerly LambdaTest), you can run Protractor Selenium tests across real browsers and operating systems. This sample shows how to configure Protractor to run on the TestMu AI cloud.
+With TestMu AI (Formerly LambdaTest), you can perform End-to-End (E2E) testing by running Protractor Selenium tests across real browsers and operating systems. This sample shows how to configure Protractor to run on the TestMu AI cloud.
 
 - [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
 - Follow the [Run Protractor tests with Selenium on TestMu AI](https://www.testmuai.com/support/docs/protractor-with-selenium-running-protractor-automation-scripts-on-testmu-selenium-grid/) for the full setup walkthrough.
